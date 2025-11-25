@@ -52,11 +52,11 @@ app.use(semesterRouter);
 app.use(adminRouter);
 (async () => {
   await DBConnection.Init();
-  var server = app.listen(8081, function () {
+var server = app.listen(8081, function () {
   var host = server.address().address
   var port = server.address().port
   console.log("Ung dung Node.js dang lang nghe tai dia chi: http://%s:%s", host, port)
-  });
-  serverWS.listen(5000);
-  var chatConnection = new IOConnection(serverWS);
+});
+serverWS.listen(5000);
+var chatConnection = new IOConnection(serverWS);
 })()
